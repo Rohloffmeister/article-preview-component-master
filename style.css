@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+--very-dark-grayish-blue: hsl(217, 19%, 35%);
+--desaturated-dark-blue: hsl(214, 17%, 51%);
+--grayish-blue: hsl(212, 23%, 69%);
+--light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+body{
+    background-color: var(--light-grayish-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: "Manrope";
+
+}
+
+main{
+
+    width: 65%;
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    border-radius: 20px;
+    box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.2);
+}
+h2{
+    font-size: clamp(1em , 1.5vw , 3em);
+}
+p{
+    font-size: clamp(0.7em , 1vw , 3em);
+}
+h3{
+    font-size: clamp(0.8em , 1.25vw , 3em);
+}
+#img-drawers{
+    width: 100%;
+    border-radius:  20px 0 0 20px ;
+}
+
+main .text{
+    height: 100%;
+    width: 100%;
+    margin-left: 2vw;
+    position: relative;
+}
+main .text h2{
+   
+    inline-size: calc(100% - 3vw);
+}
+main .text p{
+    font-size: clamp(0.8em , 1vw , 3em);
+    inline-size: calc(100% - 3vw);
+}
+.container-footer{
+    position:absolute;
+    bottom: 0;
+    width: calc(100% - 2vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-footer p {
+    text-wrap: nowrap;
+}
+.container-footer button{
+    margin-right: 1vw;
+    background-color:var(--light-grayish-blue);
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50px;
+    border: none;
+}
