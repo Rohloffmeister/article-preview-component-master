@@ -25,7 +25,7 @@ main{
 
     width: clamp(800px,70vw,1500px);
     display: grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:3fr 4fr;
     justify-content: center;
     align-items: center;
     background-color:white;
@@ -33,16 +33,19 @@ main{
     box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.2);
 }
 h2{
-    font-size: clamp(1.3em , 1.5vw , 3em);
-    color:var(--very-dark-grayish-blue)
+    font-size: clamp(1em , 1.4vw , 3em);
+    color:var(--very-dark-grayish-blue);
+    font-weight: 700;
 }
 p{
-    font-size: clamp(0.9em , 1.2vw , 3em);
+    font-size: clamp(0.9em , 1.1vw , 3em);
     color: var(--desaturated-dark-blue);
+    font-weight: 500;
 }
 h3{
-    font-size: clamp(1.1em , 1.4vw , 3em);
-    color:var(--very-dark-grayish-blue)
+    font-size: clamp(1.1em , 1.3vw , 3em);
+    color:var(--very-dark-grayish-blue);
+    font-weight: 700;
 }
 #img-drawers{
     width: 100%;
@@ -57,18 +60,18 @@ main .text{
 }
 main .text h2{
     margin-top:5%;
-    inline-size: calc(100% - 4.75vw);
+    inline-size: clamp(70%,30vw,90%);
 }
 main .text p{
     
   
-    inline-size: calc(100% - 4.75vw);
+    inline-size: clamp(70%,30vw,90%);
 }
 .container-footer{
     position:absolute;
     bottom: 0;
     width: calc(100% - 2vw);
-    margin-bottom: 0.5vw;
+    margin-bottom: 0.7vw;
     text-wrap: nowrap;
     display: flex;
     flex-direction: row;
@@ -93,8 +96,8 @@ main .text p{
 .container-footer button > img{
     
     min-height: 20px;
-    min-width: 20px;
-    height: 1.2vw;
+    min-width: 10px;
+    height: 0.2vw;
 }
 
 .profile-picture{
@@ -124,14 +127,15 @@ main .text p{
 
 }
 #share-window{
+    
     padding: 10px;
     z-index: 1;
     position: absolute;
-    top: calc(-200% - 10px);
+    top: calc(clamp(-200%,-5vw,-130%) - 10px);
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--very-dark-grayish-blue);
-    display: flex;
+    display: none;
     flex-direction: row;
     width: clamp(180px,20vw,500px);
     height: clamp(30px,3vw,70px);
@@ -164,6 +168,9 @@ color: var(--grayish-blue);
  margin-left: 1vw;
  width: 2.2vw;
  height: 2.2vw;
+}
+.flex{
+    display:flex !important ;
 }
 @media (max-width:730px) {
     
