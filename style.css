@@ -87,7 +87,11 @@ main .text p{
     width: 2.5vw;
     position: relative;
     border-radius: 100px;
+
     border: none;
+}
+.container-footer button:hover:not(:has(#share-window:hover)) {
+    background-color: var(--grayish-blue);
 }
 
 .container-footer button > img{
@@ -156,10 +160,9 @@ letter-spacing: 5px;
 margin-right: 5%;
 color: var(--grayish-blue);
 }
-#share:hover{
 
-}
 #share{
+    
     position: relative;
 }
 .share-icon{
