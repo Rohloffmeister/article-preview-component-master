@@ -1,7 +1,31 @@
-const shareWindow = document.getElementById("share-window");
-const shareButton = document.getElementById("shareButton");
+document.addEventListener("DOMContentLoaded", function () {
+  const shareButton = document.getElementById("shareButton");
+  const shareOverlay = document.getElementById("shareWindow");
+  const shareImg = document.getElementById("shareImg");
 
 
-shareButton.addEventListener("click", (e) => {
-    shareWindow.classList.toggle("flex");
+  function closeOverlay() {
+    shareOverlay.classList.remove("active");
+    shareButton.classList.remove("active");
+    shareImg.classList.remove("active");
+  }
+
+
+  function toggleOverlay() {
+    shareOverlay.classList.toggle("active");
+    shareButton.classList.toggle("active");
+    shareImg.classList.toggle("active");
+  }
+
+
+  document.body.addEventListener("click", (event) => {
+    if (
+      !shareOverlay.contains(event.target) && event.target !== shareImg && shareOverlay.classList.contains("active")
+    ) {
+      closeOverlay();
+    }
+  });
+
+
+  shareImg.addEventListener("click", toggleOverlay);
 });

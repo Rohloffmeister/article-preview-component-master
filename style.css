@@ -1,174 +1,291 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-
-:root{
---very-dark-grayish-blue: hsl(217, 19%, 35%);
---desaturated-dark-blue: hsl(214, 17%, 51%);
---grayish-blue: hsl(212, 23%, 69%);
---light-grayish-blue: hsl(210, 46%, 95%);
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
 }
 
-body{
-    background-color: var(--light-grayish-blue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100vw;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    font-family: "Manrope";
-
+body {
+  color: var(--very-dark-grayish-blue);
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--light-grayish-blue);
 }
 
-main{
-    
-    width: clamp(800px,70vw,1500px);
-    display: grid;
-    grid-template-columns:3fr 4fr;
-    justify-content: center;
-    align-items: center;
-    background-color:white;
-    border-radius: 20px;
-    box-shadow: 10px 10px 50px 0px rgba(0,0,0,0.2);
-}
-h2{
-    font-size: clamp(1em , 1.4vw , 2.2em);
-    color:var(--very-dark-grayish-blue);
-    font-weight: 700;
-}
-p{
-    font-size: clamp(0.9em , 1.1vw , 1.8em);
-    color: var(--desaturated-dark-blue);
-    font-weight: 500;
-}
-h3{
-    font-size: clamp(1.1em , 1.3vw , 2em);
-    color:var(--very-dark-grayish-blue);
-    font-weight: 700;
-}
-#img-drawers{
-    width: 100%;
-    border-radius:  20px 0 0 20px ;
+.card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 80%, 450px);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  overflow: hidden;
 }
 
-main .text{
-    height: 100%;
-    width: 100%;
-    margin-left: clamp(1vw,20px,2vw);
-    position: relative;
+.card-image {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
 }
-main .text h2{
-    margin-top:5%;
-    inline-size: clamp(70%,30vw,85%);
+
+.inner-card {
+  padding: 20px 20px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: visible;
 }
-main .text p{
-    
-  
-    inline-size: clamp(70%,30vw,90%);
+
+h1 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--very-dark-grayish-blue);
+  font-weight: 700;
 }
-.container-footer{
-    position:absolute;
-    bottom: 0;
-    width: calc(100% - 2vw);
-    margin-bottom: 0.7vw;
-    text-wrap: nowrap;
-    display: flex;
+
+p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--desaturated-dark-blue);
+  font-weight: 500;
+}
+.text {
+  margin: 0 2vw 0;
+}
+.text h1 {
+  margin-top: 0;
+}
+
+/*   <----- Footer ---->   */
+footer {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 1vw;
+}
+footer .info {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+footer .pfp {
+  width: 15%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-right: 2vw;
+}
+
+footer .info-text {
+  text-wrap: nowrap;
+}
+
+footer .info h2 {
+  font-size: clamp(1.1rem, 2.25vw, 1.3rem);
+  margin-bottom: 0.5vh;
+}
+
+footer .info p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-top: 0.5vh;
+}
+.share-button {
+  cursor: pointer;
+}
+
+footer .share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+footer .share > img {
+  width: clamp(12px, 4vw, 100px);
+  background-color: var(--light-grayish-blue);
+  aspect-ratio: 1/1;
+  padding: 9px;
+  border-radius: 50%;
+  z-index: 11;
+}
+
+/* <---- Hidden Share Overlay ----> */
+.share img.active {
+  background-color: white;
+}
+.share-hidden {
+  position: absolute;
+  bottom: 0;
+  left: -20px; /* Kompensiert das Padding des inner-card */
+  right: -20px; /* Kompensiert das Padding des inner-card */
+  background-color: var(--very-dark-grayish-blue);
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1.2rem;
+  z-index: 5;
+}
+.share-hidden.active {
+  display: flex;
+}
+.share-hidden .content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 65%;
+}
+
+.share-hidden span {
+  color: var(--grayish-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-right: 0.5rem;
+}
+.share-hidden img {
+  height: clamp(20px, 7vw, 40px);
+  aspect-ratio: 1/1;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+@media (max-width: 1025px) {
+  .inner-card {
+    height: auto; /* Höhe passt sich automatisch an den Inhalt an */
+  }
+  .card {
+    height: auto; /* Höhe passt sich automatisch an den Inhalt an */
+  }
+}
+
+/* <----- Media Query Desktop -----> */
+@media (min-width: 1024px) {
+  .card {
     flex-direction: row;
+    max-height: 350px;
+    height: 23vw;
+    overflow: visible;
+    min-height: 290px;
+    width: fit-content;
+  }
+  .card-image {
+    z-index: 0;
+    border-radius: 10px 0 0 10px;
+    width: auto;
+    aspect-ratio: 660 / 528;
+  }
+
+  .inner-card {
+    position: relative;
+    z-index: 1000;
+    padding: 0;
+    width: 35vw;
+    max-height: 100%;
+    overflow: visible;
     justify-content: space-between;
-    align-items: center;
-}
-.container-footer button{
-    margin-right: 1vw;
-    min-height: 40px;
-    min-width: 40px;
-    height: 2vw;
-    width: 2vw;
+    margin-left: -8vw;
+    background-color: white;
+  }
+
+  .card-image {
+    width: 50%;
+  }
+  .text {
+    margin: 10px 0px 0 30px;
+  }
+  .text h1 {
+    margin: 1vw 0 1vw;
+  }
+  h1 {
+    font-size: clamp(1.3rem, 1.7vw, 1.7rem);
+  }
+
+  p {
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    inline-size: 85%;
+  }
+  footer {
+    flex: 1;
+    align-items: flex-end;
     position: relative;
-    border-radius: 100px;
+  }
 
-    border: none;
-}
-.container-footer button:hover:not(:has(#share-window:hover)) {
-    background-color: var(--grayish-blue);
-}
+  footer .info h2 {
+    font-size: clamp(0.8rem, 1.75vw, 1.3rem);
+  }
 
-.container-footer button > img{
-    
-    min-height: 20px;
-    min-width: 20px;
-    height: 0.7vw;
-}
-
-.profile-picture{
-    height: clamp(60px,4vw,100px);
-    margin-right: 0;
-    border-radius: 100px;
-}
-.user{
-    margin: auto auto auto 1vw;
-}
-.user p{
- margin-top:0;
- 
-}
-.user h3{
-    margin-bottom: 0;
-}
-.user-info{
-    width: 100%;
+  footer .info p {
+    font-size: clamp(0.6rem, 1.4vw, 1rem);
+  }
+  footer .share {
     display: flex;
-    flex-direction: row;
-    justify-content: start;
+    position: relative;
+    justify-content: center;
     align-items: center;
+    width: 45px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--light-grayish-blue);
+    z-index: 3;
+    margin-bottom: 1em;
+  }
+  .share > img.active {
+    background-color: var(--light-grayish-blue);
+  }
 
-}
-#share-window{
-    
-    padding: 10px;
-    z-index: 1;
+  footer .share > img {
+    width: 27px;
+    aspect-ratio: 1/1;
+  }
+
+  .share-hidden {
+    z-index: 1000;
     position: absolute;
-    top: calc(clamp(-200%,-5vw,-130%) - 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--very-dark-grayish-blue);
-    display: none;
-    flex-direction: row;
-    width: clamp(180px,20vw,500px);
-    height: clamp(30px,3vw,70px);
-    justify-content: space-around;
-    align-items: center;
+    bottom: 125%; /* Platziert es direkt über dem Share-Button */
+    left: 50%; /* Zentriert es horizontal */
+    transform: translateX(-50%); /* Zentriert es genau */
+    /* Andere Eigenschaften anpassen */
+    min-width: 200px; /* Oder eine andere passende Breite */
+    width: fit-content;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
-}
-#share-window::after {
+    background-color: var(--very-dark-grayish-blue);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .share-hidden::after {
     content: '';
     position: absolute;
-    bottom: clamp(-41px,calc(-1vw + 3px),-9px);
+    top: 99%;
     left: 50%;
+    border: 10px solid transparent;
+    border-top-color: var(--very-dark-grayish-blue);
     transform: translateX(-50%);
-    border-left: clamp(10px,1vw,40px) solid transparent;
-    border-right: clamp(10px,1vw,40px)  solid transparent;
-    border-top: clamp(10px,1vw,40px)  solid var(--very-dark-grayish-blue);
-}
-#share-window p{
-width: 30%;
-letter-spacing: 5px;
-margin-right: 5%;
-color: var(--grayish-blue);
-}
+  }
+  .share-hidden .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-#share{
-    
+  .share-hidden img {
+    height: clamp(30px, 2vw, 40px);
+    aspect-ratio: 1/1;
     position: relative;
-}
-.share-icon{
- margin-right: 1vw;
- width: 80%;
- height: 80%;
-}
-.flex{
-    display:flex !important ;
-}
-@media (max-width:730px) {
-    
+    flex-shrink: 0;
+    z-index: 11;
+    margin: 0 1rem;
+    cursor: pointer;
+    padding: auto;
+  }
 }
