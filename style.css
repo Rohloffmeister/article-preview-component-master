@@ -167,7 +167,7 @@ footer .share > img {
   }
 }
 
-/* <----- Media Query Desktop -----> */
+/* <----- Media Query Desktop ----->*/
 @media (min-width: 1024px) {
   .card {
     flex-direction: row;
